@@ -18,24 +18,31 @@
 			<b>위치</b> <input type="text" id="location">
 			<br>
 			<b>선반 색상</b>
-			<input type="checkbox" name="shelfColor" value="화이트오크">화이트오크
-			<input type="checkbox" name="shelfColor" value="솔리드화이트">솔리드화이트
-			<input type="checkbox" name="shelfColor" value="화이트">화이트
-			<input type="checkbox" name="shelfColor" value="메이플">메이플
-			<input type="checkbox" name="shelfColor" value="진그레이">진그레이
-			<input type="checkbox" name="shelfColor" value="월넛">월넛
+			<select name="shelfColor" id="shelfColor">
+				<option>화이트오크</option>
+				<option>솔리드화이트</option>
+				<option>화이트</option>
+				<option>메이플</option>
+				<option>진그레이</option>
+				<option>월넛</option>
+			</select>
 			<br>
 			<b>프레임 색상</b>
-			<input type="checkbox" name="frameColor" value="실버">실버
-			<input type="checkbox" name="frameColor" value="화이트">화이트
-			<input type="checkbox" name="frameColor" value="샴페인골드">샴페인골드
-			<input type="checkbox" name="frameColor" value="블랙">블랙
+			<select name="frameColor" id="frameColor">
+				<option>실버</option>
+				<option>화이트</option>
+				<option>샴페인골드</option>
+				<option>블랙</option>
+			</select>
 			<br>
 			<b>형태</b>
-			<input type="checkbox" name="shape" value="일자형">1
-			<input type="checkbox" name="shape" value="'ㄱ'자형">ㄱ
-			<input type="checkbox" name="shape" value="'ㄷ'자형">ㄷ
-			<input type="checkbox" name="shape" value="'ㅁ'자형">ㅁ
+			<select name="shape" id="shape">
+				<option>'ㄱ'자형</option>
+				<option>'ㄷ'자형</option>
+				<option>'ㅁ'자형</option>
+				<option>일자형</option>
+				<option>11자형</option>
+			</select>
 			<br>
 			<b>기본</b>
 			<input type="checkbox" name="basic" value="상하행거">상하
@@ -83,23 +90,16 @@
 	btn.addEventListener('click', () => {
 		const type = document.querySelector('input[name="type"]:checked').value;
 		const location = document.getElementById('location').value;
-		const checkedShelf = document.querySelectorAll('input[name="shelfColor"]:checked');
-		const checkedFrame = document.querySelectorAll('input[name="frameColor"]:checked');
-		const checkedShape = document.querySelectorAll('input[name="shape"]:checked');
+		const shelfColor = document.getElementById('shelfColor').value;
+		const frameColor = document.getElementById('frameColor').value;
+		const shape = document.getElementById('shape').value;
 		const checkedBasic = document.querySelectorAll('input[name="basic"]:checked');
 		const checkedOption = document.querySelectorAll('input[name="option"]:checked');
 
-		let shape = [];
-		checkedShape.forEach((element) => shape.push(element.value));
 		let basic = [];
 		checkedBasic.forEach((element) => basic.push(element.value));
 		let option = [];
 		checkedOption.forEach((element) => option.push(element.value));
-
-		let shelfColor = [];
-		checkedShelf.forEach((element) => shelfColor.push(element.value));
-		let frameColor = [];
-		checkedFrame.forEach((element) => frameColor.push(element.value));
 
 		if (basic.length !== 0) basic = '\n- 기본: ' + basic.join(', ');
 		if (option.length !== 0) option = '\n- 옵션: ' + option.join(', ');
@@ -112,11 +112,11 @@
 ${location} 시공사례
 
 🎨 색상
-- 선반: ${shelfColor.join(', ')}
-- 프레임: ${frameColor.join(', ')}
+- 선반: ${shelfColor}
+- 프레임: ${frameColor}
 
 ⚙️ 형태 및 구성
-- ${shape.join(', ')}${basic}${option}
+- ${shape}${basic}${option}
 
 👍 E0등급(친환경 자재등급) 선반, 알루미늄 프레임 사용
 
