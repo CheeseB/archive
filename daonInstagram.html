@@ -55,8 +55,6 @@
 			<input type="checkbox" name="option" value="6단선반">선반6
 			<input type="checkbox" name="option" value="악세사리함">악세사리
 			<br>
-			<b>블로그 주소</b> <input type="text" id="blog">
-			<br>
 			<button id="generate">텍스트 만들기</button>
 		</div>
 
@@ -67,8 +65,6 @@
 			<b>구매 품목</b> <input type="text" id="product">
 			<br>
 			<b>오픈채팅방</b> <input type="text" id="kakao">
-			<br>
-			<b>블로그 주소</b> <input type="text" id="blog2">
 			<br>
 			<button id="generate2">텍스트 만들기</button>
 		</div>
@@ -92,7 +88,6 @@
 		const checkedShape = document.querySelectorAll('input[name="shape"]:checked');
 		const checkedBasic = document.querySelectorAll('input[name="basic"]:checked');
 		const checkedOption = document.querySelectorAll('input[name="option"]:checked');
-		const blog = document.getElementById('blog').value;
 
 		let shape = [];
 		checkedShape.forEach((element) => shape.push(element.value));
@@ -131,7 +126,7 @@ ${location} 시공사례
 010-7624-5130
 
 🌐 네이버 블로그
-${blog}
+https://blog.naver.com/da---on
 
 💬 카카오톡 오픈채팅방
 다온시스템
@@ -168,7 +163,6 @@ ${tags}#다온시스템 #드레스룸 #맞춤형드레스룸 #시스템행거 #�
 		const location2 = document.getElementById('location2').value;
 		const product = document.getElementById('product').value;
 		const kakao = document.getElementById('kakao').value;
-		const blog2 = document.getElementById('blog2').value;
 		const tags2 = location2.split(' ').reduce((acc, cur) => `${acc}#${cur} `, '');
 
 		const textValue =
@@ -191,7 +185,7 @@ ${kakao}
 010-7624-5130
 
 🌐 네이버 블로그
-${blog2}
+https://blog.naver.com/da---on
 
 💬 카카오톡 오픈채팅방
 다온시스템
