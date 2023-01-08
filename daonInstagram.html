@@ -67,22 +67,40 @@
 
 		<div>
 			<h2>공동구매</h2>
-			<b>위치</b> <input type="text" id="location2">
+			<b>위치</b>
+			<select name="location" id="location2"></select>
 			<br>
 			<b>구매 품목</b> <input type="text" id="product">
 			<br>
-			<b>오픈채팅방</b> <input type="text" id="kakao">
+			<b>특이사항</b> <input type="text" id="others">
 			<br>
 			<button id="generate2">텍스트 만들기</button>
 		</div>
 	</div>
-
 	<hr>
-
 	<h2>결과</h2>
 	<div id="results" style="display: flex; flex-wrap: wrap; gap: 20px;"></div>
 </body>
 <script>
+	const kakaoOpenChat = {
+		'부평 두산위브더파크': 'https://open.kakao.com/o/gnyyzrTe',
+		'고척 아이파크': 'https://open.kakao.com/o/gQ5dqiKe',
+		'장현 포레미엘더파크': 'https://open.kakao.com/o/gCcnBrTe',
+		'성남 금빛그랑메종e편한세상': 'https://open.kakao.com/o/gSYB3dSe',
+		'화성 나노시티 롯데캐슬': 'https://open.kakao.com/o/g331WLSe',
+		'검단 대성베르힐': 'https://open.kakao.com/o/gw5aGwTe',
+		'부평 skview해모로': 'https://open.kakao.com/o/gtO3DwTe',
+		'호반 써밋프라임': 'https://open.kakao.com/o/gJQxkYTe',
+		'양주 회천 한양수자인': 'https://open.kakao.com/o/gMvKKJUe',
+		'옥정 The1 파크빌리지': 'https://open.kakao.com/o/gTU50xVe',
+	}
+
+	let optionHtml = '';
+	for (const groupBying of Object.keys(kakaoOpenChat)) {
+		optionHtml += `<option>${groupBying}</option>`;
+	}
+	document.getElementById('location2').innerHTML = optionHtml;
+
 	const btn = document.getElementById('generate');
 	const btn2 = document.getElementById('generate2');
 	const results = document.getElementById('results');
@@ -162,8 +180,11 @@ ${tags}#다온시스템 #드레스룸 #맞춤형드레스룸 #시스템행거 #�
 	btn2.addEventListener('click', () => {
 		const location2 = document.getElementById('location2').value;
 		const product = document.getElementById('product').value;
-		const kakao = document.getElementById('kakao').value;
+		let others = document.getElementById('others').value;
+		const kakaoChatLink = kakaoOpenChat[location2];
 		const tags2 = location2.split(' ').reduce((acc, cur) => `${acc}#${cur} `, '');
+
+		if (others) others = '\n- ' + others;
 
 		const textValue =
 			`⭐️ 다온시스템 ⭐️
@@ -172,10 +193,10 @@ ${tags}#다온시스템 #드레스룸 #맞춤형드레스룸 #시스템행거 #�
 하단 카톡 오픈채팅방에 참여해주세요
 
 - ${location2}
-- ${product}
+- ${product}${others}
 
 💬 카카오톡 오픈채팅방
-${kakao}
+${kakaoChatLink}
 
 👍 E0등급(친환경 자재등급) 선반, 알루미늄 프레임 사용
 
