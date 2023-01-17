@@ -12,6 +12,8 @@
 	<div style="display: flex; gap: 100px;">
 		<div>
 			<h2>시공사례</h2>
+			<input type="checkbox" id="isJeonju">전주
+			<br>
 			<input type="radio" name="type" value="드레스룸" checked>드레스룸
 			<input type="radio" name="type" value="수납공간">수납공간
 			<br>
@@ -110,6 +112,7 @@
 	const results = document.getElementById('results');
 
 	btn.addEventListener('click', () => {
+		let isJeonju = document.getElementById('isJeonju').checked;
 		const type = document.querySelector('input[name="type"]:checked').value;
 		const location = document.getElementById('location').value;
 		const shelfColor = document.getElementById('shelfColor').value;
@@ -117,6 +120,19 @@
 		const shape = document.getElementById('shape').value;
 		const checkedBasic = document.querySelectorAll('input[name="basic"]:checked');
 		const checkedOption = document.querySelectorAll('input[name="option"]:checked');
+
+		if (!isJeonju) isJeonju = '';
+		else isJeonju =
+			`
+😄📢 공동구매 모집중!!
+하단 카톡 오픈채팅방에 참여해주세요
+
+- 완주 모아미래도 드레스룸 시스템행거
+- 무료 방문실측 및 무료시공
+
+💬 카카오톡 오픈채팅방
+https://open.kakao.com/o/gRa06hYe
+`;
 
 		let basic = [];
 		checkedBasic.forEach((element) => basic.push(element.value));
@@ -139,7 +155,7 @@ ${location} 시공사례
 
 ⚙️ 형태 및 구성
 - ${shape}${basic}${option}
-
+${isJeonju}
 👍 E0등급(친환경 자재등급) 선반, 알루미늄 프레임 사용
 
 ⭐️ 방문실측 및 상담 무료진행
