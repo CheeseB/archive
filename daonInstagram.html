@@ -94,11 +94,14 @@
 		'호반 써밋프라임': 'https://open.kakao.com/o/gJQxkYTe',
 		'양주 회천 한양수자인': 'https://open.kakao.com/o/gMvKKJUe',
 		'옥정 The1 파크빌리지': 'https://open.kakao.com/o/gTU50xVe',
+		'완주 모아미래도': 'https://open.kakao.com/o/gRa06hYe',
 	}
 
 	let optionHtml = '';
-	for (const groupBying of Object.keys(kakaoOpenChat)) {
-		optionHtml += `<option>${groupBying}</option>`;
+	let AllOpenChatStr = '';
+	for (const [location, link] of Object.entries(kakaoOpenChat)) {
+		optionHtml += `<option>${location}</option>`;
+		AllOpenChatStr += `${location}\n${link}\n`;
 	}
 	document.getElementById('location2').innerHTML = optionHtml;
 
@@ -150,26 +153,7 @@ https://blog.naver.com/da---on
 💬 카카오톡 오픈채팅방
 다온시스템
 https://open.kakao.com/o/gPDMSf4d
-부평 두산위브더파크
-https://open.kakao.com/o/gnyyzrTe
-구로 고척아이파크
-https://open.kakao.com/o/gQ5dqiKe
-장현 포레미엘더파크
-https://open.kakao.com/o/gCcnBrTe
-성남 금빛그랑메종e편한세상
-https://open.kakao.com/o/gSYB3dSe
-화성 나노시티 롯데캐슬
-https://open.kakao.com/o/g331WLSe
-검단 대성베르힐
-https://open.kakao.com/o/gw5aGwTe
-부평 skview해모로
-https://open.kakao.com/o/gtO3DwTe
-호반 써밋프라임
-https://open.kakao.com/o/gJQxkYTe
-양주 회천 한양수자인
-https://open.kakao.com/o/gMvKKJUe
-옥정 The1 파크빌리지
-https://open.kakao.com/o/gTU50xVe
+${AllOpenChatStr}
 
 ${tags}#다온시스템 #드레스룸 #맞춤형드레스룸 #시스템행거 #팬트리 #맞춤형시스템행거 #오피스텔 #원룸 #다세대주택 #전원주택 #리폼 #공구 #공동구매 #리모델링 #인테리어 #펜트리선반 #아이옷방 #세탁실선반 #선반 #세탁실수납선반 #자투리공간 #재설치 #이전설치 #대피실선반 #팬트리장리폼 #무볼트앵글선반 #청년주택
 `;
@@ -212,26 +196,7 @@ https://blog.naver.com/da---on
 💬 카카오톡 오픈채팅방
 다온시스템
 https://open.kakao.com/o/gPDMSf4d
-부평 두산위브더파크
-https://open.kakao.com/o/gnyyzrTe
-구로 고척아이파크
-https://open.kakao.com/o/gQ5dqiKe
-장현 포레미엘더파크
-https://open.kakao.com/o/gCcnBrTe
-성남 금빛그랑메종e편한세상
-https://open.kakao.com/o/gSYB3dSe
-화성 나노시티 롯데캐슬
-https://open.kakao.com/o/g331WLSe
-검단 대성베르힐
-https://open.kakao.com/o/gw5aGwTe
-부평 skview해모로
-https://open.kakao.com/o/gtO3DwTe
-호반 써밋프라임
-https://open.kakao.com/o/gJQxkYTe
-양주 회천 한양수자인
-https://open.kakao.com/o/gMvKKJUe
-옥정 The1 파크빌리지
-https://open.kakao.com/o/gTU50xVe
+${AllOpenChatStr}
 
 ${tags2}#다온시스템 #드레스룸 #맞춤형드레스룸 #시스템행거 #팬트리 #맞춤형시스템행거 #오피스텔 #원룸 #다세대주택 #전원주택 #리폼 #공구 #공동구매 #리모델링 #인테리어 #펜트리선반 #아이옷방 #세탁실선반 #선반 #세탁실수납선반 #자투리공간 #재설치 #이전설치 #대피실선반 #팬트리장리폼 #무볼트앵글선반 #청년주택
 `;
