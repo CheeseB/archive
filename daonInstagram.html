@@ -180,11 +180,12 @@ ${tags}#다온시스템 #드레스룸 #맞춤형드레스룸 #시스템행거 #�
 
 	btn2.addEventListener('click', () => {
 		const location2 = document.getElementById('location2').value;
-		const product = document.getElementById('product').value;
+		let product = document.getElementById('product').value;
 		let others = document.getElementById('others').value;
 		const kakaoChatLink = kakaoOpenChat[location2];
 		const tags2 = location2.split(' ').reduce((acc, cur) => `${acc}#${cur} `, '');
 
+		if (product) product = '\n- ' + product;
 		if (others) others = '\n- ' + others;
 
 		const textValue =
@@ -193,8 +194,7 @@ ${tags}#다온시스템 #드레스룸 #맞춤형드레스룸 #시스템행거 #�
 😄📢 공동구매 진행중!!
 하단 카톡 오픈채팅방에 참여해주세요
 
-- ${location2}
-- ${product}${others}
+- ${location2}${product}${others}
 
 💬 카카오톡 오픈채팅방
 ${kakaoChatLink}
