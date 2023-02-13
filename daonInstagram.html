@@ -115,6 +115,7 @@
 	const btn = document.getElementById('generate');
 	const btn2 = document.getElementById('generate2');
 	const results = document.getElementById('results');
+	const blogResults = document.getElementById('blogResults');
 
 	btn.addEventListener('click', () => {
 		let isJeonju = document.getElementById('isJeonju').checked;
@@ -170,7 +171,7 @@ https://blog.naver.com/da---on
 ${tags}#다온시스템 #드레스룸 #맞춤형드레스룸 #시스템행거 #팬트리 #맞춤형시스템행거 #오피스텔 #원룸 #다세대주택 #전원주택 #리폼 #공구 #공동구매 #리모델링 #인테리어 #펜트리선반 #아이옷방 #세탁실선반 #선반 #세탁실수납선반 #자투리공간 #재설치 #이전설치 #대피실선반 #팬트리장리폼 #무볼트앵글선반 #청년주택`;
 
 		const blogTextValue =
-			`${location}
+			`${location} 시공사례
 
 🎨 색상
 - 선반: ${shelfColor}
@@ -178,10 +179,14 @@ ${tags}#다온시스템 #드레스룸 #맞춤형드레스룸 #시스템행거 #�
 
 ⚙️ 형태 및 구성
 - ${shape}${basic}${option}
-${isJeonju}`;
+${isJeonju}
+
+${tags}#다온시스템 #드레스룸 #맞춤형드레스룸 #시스템행거 #팬트리 #맞춤형시스템행거 #오피스텔 #원룸 #다세대주택 #전원주택 #리폼 #공구 #공동구매 #리모델링 #인테리어 #펜트리선반 #아이옷방 #세탁실선반 #선반 #세탁실수납선반 #자투리공간 #재설치 #이전설치 #대피실선반 #팬트리장리폼 #무볼트앵글선반 #청년주택`;
 
 		const html = `<div><h3>${location}</h3><textarea cols="30" rows="15">${textValue}</textarea></div>`;
+		const blogHtml = `<div><h3>${location}</h3><textarea cols="30" rows="15">${blogTextValue}</textarea></div>`;
 		results.insertAdjacentHTML('beforeEnd', html);
+		blogResults.insertAdjacentHTML('beforeEnd', blogHtml);
 	});
 
 	btn2.addEventListener('click', () => {
@@ -220,10 +225,14 @@ ${tags2}#다온시스템 #드레스룸 #맞춤형드레스룸 #시스템행거 #
 - ${location2}${product}${others}
 
 💬 카카오톡 오픈채팅방
-${kakaoChatLink}`;
+${kakaoChatLink}
+
+${tags2}#다온시스템 #드레스룸 #맞춤형드레스룸 #시스템행거 #팬트리 #맞춤형시스템행거 #오피스텔 #원룸 #다세대주택 #전원주택 #리폼 #공구 #공동구매 #리모델링 #인테리어 #펜트리선반 #아이옷방 #세탁실선반 #선반 #세탁실수납선반 #자투리공간 #재설치 #이전설치 #대피실선반 #팬트리장리폼 #무볼트앵글선반 #청년주택`;
 
 		const html = `<div><h3>${location2}</h3><textarea cols="30" rows="15">${textValue}</textarea></div>`;
+		const blogHtml = `<div><h3>${location2}</h3><textarea cols="30" rows="15">${blogTextValue}</textarea></div>`;
 		results.insertAdjacentHTML('beforeEnd', html);
+		blogResults.insertAdjacentHTML('beforeEnd', blogHtml);
 	});
 </script>
 
