@@ -83,8 +83,11 @@
 		</div>
 	</div>
 	<hr>
-	<h2>결과</h2>
+	<h2>결과 (인스타)</h2>
 	<div id="results" style="display: flex; flex-wrap: wrap; gap: 20px;"></div>
+	<hr>
+	<h2>결과 (블로그)</h2>
+	<div id="blogResults" style="display: flex; flex-wrap: wrap; gap: 20px;"></div>
 </body>
 <script>
 	const kakaoOpenChat = {
@@ -102,10 +105,10 @@
 	}
 
 	let optionHtml = '';
-	let AllOpenChatStr = '';
+	// let AllOpenChatStr = '';
 	for (const [location, link] of Object.entries(kakaoOpenChat)) {
 		optionHtml += `<option>${location}</option>`;
-		AllOpenChatStr += `${location}\n${link}\n`;
+		// AllOpenChatStr += `${location}\n${link}\n`;
 	}
 	document.getElementById('location2').innerHTML = optionHtml;
 
@@ -164,8 +167,18 @@ ${isJeonju}
 🌐 네이버 블로그
 https://blog.naver.com/da---on
 
-${tags}#다온시스템 #드레스룸 #맞춤형드레스룸 #시스템행거 #팬트리 #맞춤형시스템행거 #오피스텔 #원룸 #다세대주택 #전원주택 #리폼 #공구 #공동구매 #리모델링 #인테리어 #펜트리선반 #아이옷방 #세탁실선반 #선반 #세탁실수납선반 #자투리공간 #재설치 #이전설치 #대피실선반 #팬트리장리폼 #무볼트앵글선반 #청년주택
-`;
+${tags}#다온시스템 #드레스룸 #맞춤형드레스룸 #시스템행거 #팬트리 #맞춤형시스템행거 #오피스텔 #원룸 #다세대주택 #전원주택 #리폼 #공구 #공동구매 #리모델링 #인테리어 #펜트리선반 #아이옷방 #세탁실선반 #선반 #세탁실수납선반 #자투리공간 #재설치 #이전설치 #대피실선반 #팬트리장리폼 #무볼트앵글선반 #청년주택`;
+
+		const blogTextValue =
+			`${location}
+
+🎨 색상
+- 선반: ${shelfColor}
+- 프레임: ${frameColor}
+
+⚙️ 형태 및 구성
+- ${shape}${basic}${option}
+${isJeonju}`;
 
 		const html = `<div><h3>${location}</h3><textarea cols="30" rows="15">${textValue}</textarea></div>`;
 		results.insertAdjacentHTML('beforeEnd', html);
@@ -184,7 +197,7 @@ ${tags}#다온시스템 #드레스룸 #맞춤형드레스룸 #시스템행거 #�
 		const textValue =
 			`⭐️ 다온시스템 ⭐️
 
-😄📢 공동구매 진행중!!
+😄📢 공동구매 모집중!!
 
 - ${location2}${product}${others}
 
@@ -200,6 +213,14 @@ https://blog.naver.com/da---on
 
 ${tags2}#다온시스템 #드레스룸 #맞춤형드레스룸 #시스템행거 #팬트리 #맞춤형시스템행거 #오피스텔 #원룸 #다세대주택 #전원주택 #리폼 #공구 #공동구매 #리모델링 #인테리어 #펜트리선반 #아이옷방 #세탁실선반 #선반 #세탁실수납선반 #자투리공간 #재설치 #이전설치 #대피실선반 #팬트리장리폼 #무볼트앵글선반 #청년주택
 `;
+
+		const blogTextValue =
+			`😄📢 공동구매 모집중!!
+
+- ${location2}${product}${others}
+
+💬 카카오톡 오픈채팅방
+${kakaoChatLink}`;
 
 		const html = `<div><h3>${location2}</h3><textarea cols="30" rows="15">${textValue}</textarea></div>`;
 		results.insertAdjacentHTML('beforeEnd', html);
